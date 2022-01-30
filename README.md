@@ -1,0 +1,2 @@
+# Dsponsr
+Decentralized philanthropy app 
