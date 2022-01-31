@@ -3,7 +3,6 @@ const HDWalletProvider = require('@truffle/hdwallet-provider')
 require('dotenv').config()
 module.exports = {
   contracts_build_directory: path.join(__dirname, 'front_end/src/contracts'),
-  plugins: ['truffle-contract-size'],
   networks: {
     development: {
       host: '127.0.0.1',
@@ -41,6 +40,16 @@ module.exports = {
       gas: 5500000,
       confirmations: 0,
       timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    matic: {
+      provider: () =>
+        new HDWalletProvider(
+          process.env.MNEMONIC,
+          `https://rpc-mumbai.maticvigil.com`
+        ),
+      network_id: 80001,
+      confirmations: 0,
       skipDryRun: true
     }
   },
